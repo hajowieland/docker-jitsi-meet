@@ -16,22 +16,22 @@ build-all:
 	BUILD_ARGS=$(BUILD_ARGS) $(MAKE) -C jigasi build
 
 tag-all:
-	docker tag jitsi/base:latest jitsi/base:$(JITSI_BUILD)
-	docker tag jitsi/base-java:latest jitsi/base-java:$(JITSI_BUILD)
-	docker tag jitsi/web:latest jitsi/web:$(JITSI_BUILD)
-	docker tag jitsi/prosody:latest jitsi/prosody:$(JITSI_BUILD)
-	docker tag jitsi/jicofo:latest jitsi/jicofo:$(JITSI_BUILD)
-	docker tag jitsi/jvb:latest jitsi/jvb:$(JITSI_BUILD)
-	docker tag jitsi/jigasi:latest jitsi/jigasi:$(JITSI_BUILD)
+	docker tag jitsi/base:latest hajowieland/jitsi-base:$(JITSI_BUILD)
+	docker tag jitsi/base-java:latest hajowieland/jitsi-base-java:$(JITSI_BUILD)
+	docker tag jitsi/web:latest hajowieland/jitsi-web:$(JITSI_BUILD)
+	docker tag jitsi/prosody:latest hajowieland/jitsi-prosody:$(JITSI_BUILD)
+	docker tag jitsi/jicofo:latest hajowieland/jitsi-jicofo:$(JITSI_BUILD)
+	docker tag jitsi/jvb:latest hajowieland/jitsi-jvb:$(JITSI_BUILD)
+	docker tag jitsi/jigasi:latest hajowieland/jitsi-jigasi:$(JITSI_BUILD)
 
 push-all:
-	docker push jitsi/base
-	docker push jitsi/base-java
-	docker push jitsi/web
-	docker push jitsi/prosody
-	docker push jitsi/jicofo
-	docker push jitsi/jvb
-	docker push jitsi/jigasi
+	docker push hajowieland/jitsi-base
+	docker push hajowieland/jitsi-base-java
+	docker push hajowieland/jitsi-web
+	docker push hajowieland/jitsi-prosody
+	docker push hajowieland/jitsi-jicofo
+	docker push hajowieland/jitsi-jvb
+	docker push hajowieland/jitsi-jigasi
 
 clean:
 	docker-compose stop
