@@ -65,10 +65,10 @@ modules_enabled = {
 	-- Other specific functionality
 		"posix"; -- POSIX functionality, sends server to background, enables syslog, etc.
 		--"groups"; -- Shared roster support
-		--"announce"; -- Send announcement to all online users
+		"announce"; -- Send announcement to all online users
 		--"welcome"; -- Welcome users who register accounts
-		--"watchregistrations"; -- Alert admins of registrations
-		--"motd"; -- Send a message to users when they log in
+		"watchregistrations"; -- Alert admins of registrations
+		"motd"; -- Send a message to users when they log in
 		--"legacyauth"; -- Legacy authentication. Only used by some old clients and bots.
 };
 
@@ -128,13 +128,15 @@ authentication = "internal_plain"
 -- through modules. An "sql" backend is included by default, but requires
 -- additional dependencies. See http://prosody.im/doc/storage for more info.
 
---storage = "sql" -- Default is "internal" (Debian: "sql" requires one of the
+storage = "sql" -- Default is "internal" (Debian: "sql" requires one of the
 -- lua-dbi-sqlite3, lua-dbi-mysql or lua-dbi-postgresql packages to work)
 
 -- For the "sql" backend, you can uncomment *one* of the below to configure:
 --sql = { driver = "SQLite3", database = "prosody.sqlite" } -- Default. 'database' is the filename.
 --sql = { driver = "MySQL", database = "prosody", username = "prosody", password = "secret", host = "localhost" }
---sql = { driver = "PostgreSQL", database = "prosody", username = "prosody", password = "secret", host = "localhost" }
+sql = { driver = "{{ .Env.DB_ENGINE }}", database = "{{ .Env.DB_NAME }}", username = "{{ .Env.DB_USER }}", password = "{{ .Env.DB_PASSWORD }}", host = "{{ .Env.DB_HOST }}" }
+-- PostgreSQL
+
 
 -- Logging configuration
 -- For advanced logging see http://prosody.im/doc/logging

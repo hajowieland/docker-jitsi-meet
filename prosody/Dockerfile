@@ -2,7 +2,7 @@ FROM jitsi/base
 
 RUN \
 	apt-dpkg-wrap apt-get update && \
-	apt-dpkg-wrap apt-get install -t stretch-backports -y prosody && \
+	apt-dpkg-wrap apt-get install -t stretch-backports -y prosody lua-dbi-postgresql && \
 	apt-cleanup && \
 	rm -rf /etc/prosody
 

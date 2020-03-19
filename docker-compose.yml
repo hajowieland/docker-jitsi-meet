@@ -55,6 +55,7 @@ services:
             - JIGASI_XMPP_USER
             - JIGASI_XMPP_PASSWORD
             - TZ
+            - DB_ENGINE
         networks:
             meet.jitsi:
                 aliases:
